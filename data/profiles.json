@@ -1,0 +1,74 @@
+[
+  {
+    "id": "prof-kryetari",
+    "slug": "rakip-suli",
+    "fullName": "Rakip Suli",
+    "role": "Kryetar i Bashkisë Kamëz",
+    "avatarUrl": "brand/rakip-suli-portrait.webp",
+    "bio": "Kryetar i Bashkisë Kamëz. Dritare e hapur komunikimi me të gjithë banorët e Kamzës dhe Paskuqanit për pyetje, kërkesa, shqetësime dhe propozime konkrete.",
+    "isAvailable": true,
+    "categories": [
+      "Infrastruktura & Rrugët",
+      "Projektet Madhore të Qytetit",
+      "Kërkesa Komunitare",
+      "Kritika & Propozime"
+    ],
+    "welcomeMessage": "Mirësevini! Zëri juaj është forca dhe udhërrëfyesi ynë i përditshëm për të zhvilluar Kamzën.",
+    "responseRate": "98%",
+    "avgResponseTime": "24 orë"
+  },
+  {
+    "id": "prof-sherbime",
+    "slug": "sherbimet-publike",
+    "fullName": "Drejtoria e Shërbimeve Publike & Pastrimit",
+    "role": "Bashkia Kamëz · Shërbimet Komunale",
+    "avatarUrl": "brand/pastrimi-ok.jpg",
+    "bio": "Përgjegjëse për pastrimin e pandërprerë të qytetit, menaxhimin e mbetjeve, mirëmbajtjen e ndriçimit publik, gjelbërimin dhe hapësirat e përbashkëta.",
+    "isAvailable": true,
+    "categories": [
+      "Pastrimi & Mbetjet Urbane",
+      "Ndriçimi Publik",
+      "Parqet & Këndet e Lojërave",
+      "Mirëmbajtja e Rrugëve"
+    ],
+    "welcomeMessage": "Na njoftoni për çdo nevojë apo defekt në shërbimet e lagjes suaj.",
+    "responseRate": "99%",
+    "avgResponseTime": "12 orë"
+  },
+  {
+    "id": "prof-urbanistika",
+    "slug": "urbanistika-projektet",
+    "fullName": "Drejtoria e Urbanistikës & Projekteve",
+    "role": "Bashkia Kamëz · Zhvillimi Urban",
+    "avatarUrl": "brand/kamez-takim-projekteve.jpg",
+    "bio": "Planifikimi territorial, investimet në rrugë të reja, shkolla, çerdhe e kopshte, rrjeti i ujësjellës-kanalizimeve dhe lejet e ndërtimit.",
+    "isAvailable": true,
+    "categories": [
+      "Leje Ndërtimi & Rregullime",
+      "Rrugë të Reja & Asfaltim",
+      "Rrjeti Ujësjellës-Kanalizime",
+      "Objektet Arsimore & Çerdhet"
+    ],
+    "welcomeMessage": "Punojmë për një Kamëz me infrastrukturë moderne dhe standarde bashkëkohore.",
+    "responseRate": "95%",
+    "avgResponseTime": "24 orë"
+  },
+  {
+    "id": "prof-marredheniet",
+    "slug": "zyra-komunitetit",
+    "fullName": "Zyra e Marrëdhënieve me Komunitetin",
+    "role": "Bashkia Kamëz · Kujdesi për Qytetarin",
+    "avatarUrl": "brand/logo-bashkia-kamez.png",
+    "bio": "Kanal i dedikuar për ndihmën sociale, dëgjesat publike, koordinimin e ankesave dhe lehtësimin e shërbimeve administrative për banorët.",
+    "isAvailable": true,
+    "categories": [
+      "Ndihma & Shërbimet Sociale",
+      "Dëgjesat Publike",
+      "Ankesa Administrative",
+      "Vërtetime & Çështje Qytetare"
+    ],
+    "welcomeMessage": "Jemi në shërbimin tuaj për çdo procedurë dhe orientim administrativ.",
+    "responseRate": "97%",
+    "avgResponseTime": "12 orë"
+  }
+]

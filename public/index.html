@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="sq" class="scroll-smooth">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <meta name="theme-color" content="#0b0b0a"/>
+  <title id="page-title">Fol me Kryetarin · Bashkia Kamëz</title>
+  <meta name="description" content="Platforma zyrtare e komunikimit të drejtpërdrejtë qytetar me Kryetarin e Bashkisë Kamëz, Rakip Suli. Pyetje, kërkesa, shqetësime dhe propozime."/>
+  
+  <!-- Preload fonts & assets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/folmekm.css">
+  <link rel="stylesheet" href="css/custom.css">
+  
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="font-sans bg-cream text-ink antialiased min-h-dvh flex flex-col selection:bg-ink selection:text-paper">
+
+  <!-- ======================================================== -->
+  <!-- SITE HEADER -->
+  <!-- ======================================================== -->
+  <header class="border-line bg-paper/90 sticky top-0 z-40 border-b backdrop-blur">
+    <div class="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
+      
+      <!-- Brand Logo & Title -->
+      <a class="min-w-0 rounded-sm" href="#">
+        <span class="items-center gap-3 text-ink hidden sm:inline-flex">
+          <img id="nav-logo-img" src="brand/logo-bashkia-kamez.png" alt="Logo Bashkia Kamëz" aria-hidden="true" class="w-auto select-none h-14 object-contain"/>
+          <span class="flex flex-col leading-none">
+            <span id="nav-title" class="font-display font-medium tracking-tight whitespace-nowrap text-lg">Fol me Kryetarin</span>
+            <span id="nav-subtitle" class="mt-1 text-[11px] font-medium tracking-wide uppercase text-ash-2">Bashkia Kamëz · Zyra e Komunikimit</span>
+          </span>
+        </span>
+        <span class="text-ink inline-flex items-center gap-2.5 sm:hidden">
+          <img id="nav-logo-mobile" src="brand/logo-bashkia-kamez.png" alt="Logo" aria-hidden="true" class="w-auto select-none h-10 object-contain"/>
+          <span id="nav-title-mobile" class="font-display text-[15px] leading-[1.1] font-medium">Fol me<br/>Kryetarin</span>
+        </span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-ink-2">
+        <a href="#letra" class="hover:text-red transition-colors">Letra</a>
+        <a href="#pergjigjja" class="hover:text-red transition-colors">Koncepti</a>
+        <a href="#temat" class="hover:text-red transition-colors">Temat</a>
+        <a href="#garancite" class="hover:text-red transition-colors">Garancitë</a>
+        <a href="#profilet" class="hover:text-red transition-colors">Profilet</a>
+        <a href="#transparenca" class="hover:text-red transition-colors">Transparenca</a>
+        <a href="#ndiq-statusin" class="hover:text-red transition-colors">Ndiq Statusin</a>
+      </nav>
+
+      <!-- CTA Buttons & Auth / Admin Container -->
+      <div class="flex items-center gap-3 shrink-0">
+        
+        <!-- User Profile Dropdown (Shown when logged in) -->
+        <div id="nav-user-container" class="relative hidden">
+          <button onclick="toggleUserDropdown(event)" class="flex items-center gap-2 rounded-full bg-paper hover:bg-cream border border-line px-3 py-1.5 text-xs font-medium text-ink shadow-sm transition-colors">
+            <img id="nav-user-avatar" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=160&q=80" class="w-6 h-6 rounded-full object-cover border border-red/40">
+            <span id="nav-user-name" class="font-bold max-w-[120px] truncate">Qytetar</span>
+            <i class="fa-solid fa-chevron-down text-[10px] text-ash-2 ml-0.5"></i>
+          </button>
+          
+          <!-- Dropdown Menu -->
+          <div id="nav-user-dropdown" class="hidden absolute right-0 mt-2 w-64 bg-paper rounded-2xl shadow-xl border border-line p-3 z-50 text-left">
+            <div class="border-b border-line pb-2 mb-2">
+              <div id="user-menu-fullname" class="font-display font-bold text-sm text-ink truncate">Emri Mbiemri</div>
+              <div id="user-menu-email" class="text-xs text-ash-2 truncate">email@gmail.com</div>
+              <div class="flex items-center gap-1.5 mt-1.5 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full w-fit">
+                <i class="fa-solid fa-circle-check text-[10px]"></i> <span id="user-menu-phone">+355 69 ...</span>
+              </div>
+            </div>
+            <button onclick="openMyInquiriesModal()" class="w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-ink hover:bg-cream flex items-center gap-2">
+              <i class="fa-solid fa-paper-plane text-ash-2"></i> Mesazhet e Mia
+            </button>
+            <button onclick="handleLogout()" class="w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-red hover:bg-red/10 flex items-center gap-2 mt-1">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i> Dil nga Llogaria
+            </button>
+          </div>
+        </div>
+
+        <!-- Admin Dashboard Toggle Button -->
+        <button onclick="openAdminModal()" class="text-ash-2 hover:text-red p-2 rounded-full transition-colors" title="Paneli i Menaxhimit (Tekstet, Fotot, Mesazhet)">
+          <i class="fa-solid fa-sliders text-base"></i>
+        </button>
+
+        <!-- Shkruaj Kryetarit Button (Hap kyçjen me Google nëse s'është i kyçur, ose shkon te formulari) -->
+        <button id="nav-cta-btn" onclick="handleNavCtaClick()" class="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full font-medium transition-all duration-150 select-none bg-red text-paper hover:bg-red-deep h-11 text-sm sm:h-10 px-5 sm:px-6 shadow-sm active:translate-y-px">
+          <span class="font-bold tracking-[0.08em] uppercase">shkruaj KRYETARIT</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================== -->
+  <!-- MAIN CONTENT -->
+  <!-- ======================================================== -->
+  <main id="permbajtja">
+
+    <!-- HERO SECTION -->
+    <section class="bg-ink text-paper relative isolate overflow-hidden min-h-[calc(100svh-5rem)] flex flex-col justify-end">
+      <img id="hero-img" src="brand/rakip-suli-cover.jpeg" alt="Hero Background" class="absolute inset-0 -z-20 h-full w-full object-cover object-[50%_20%]"/>
+      <div aria-hidden="true" class="bg-ink/40 absolute inset-0 -z-10"></div>
+      
+      <div class="mx-auto flex w-full max-w-7xl flex-col justify-end px-4 py-16 sm:px-6 lg:px-8 lg:py-20 relative z-10">
+        <div class="flex max-w-xl flex-col gap-7">
+          <p id="hero-tag-wrapper" class="flex items-center gap-3 text-[11px] font-medium tracking-[0.2em] uppercase text-paper/70">
+            <span aria-hidden="true" class="bg-red h-px w-8"></span><span id="hero-tag">Bashkia Kamëz · Dialog i Hapur</span>
+          </p>
+          
+          <h1 id="hero-heading" class="font-display text-display-lg font-medium text-balance leading-tight text-white">
+            Fol me<br/>Kryetarin
+          </h1>
+
+          <!-- Category Tags (Iconic folmekm pills) -->
+          <ul id="hero-pills" class="flex flex-wrap gap-2" aria-label="Çfarë mund të dërgosh">
+            <li class="text-ink rounded-full px-3.5 py-1 text-[11px] font-semibold tracking-[0.18em] uppercase bg-[#f6b7cf] shadow-sm">Pyetje</li>
+            <li class="text-ink rounded-full px-3.5 py-1 text-[11px] font-semibold tracking-[0.18em] uppercase bg-[#f2c14e] shadow-sm">Kërkesa</li>
+            <li class="text-ink rounded-full px-3.5 py-1 text-[11px] font-semibold tracking-[0.18em] uppercase bg-[#5cc2b6] shadow-sm">Shqetësime</li>
+            <li class="text-ink rounded-full px-3.5 py-1 text-[11px] font-semibold tracking-[0.18em] uppercase bg-[#b3b4ea] shadow-sm">Propozime</li>
+          </ul>
+
+          <p id="hero-subtext" class="text-paper/90 max-w-xl text-base leading-relaxed text-pretty md:text-lg">
+            Një hapësirë e re e drejtpërdrejtë komunikimi me Kryetarin e Bashkisë Kamëz, Rakip Suli. E hapur për të gjithë qytetarët e Bashkisë Kamëz që dëshirojnë të bëjnë një pyetje, të ngrenë një shqetësim për komunitetin, të kërkojnë ndërhyrje për shërbimet publike apo të paraqesin një propozim për lagjen dhe qytetin e tyre.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-1">
+            <a id="hero-cta-button" href="#shkruaj" class="bg-red text-paper hover:bg-red-deep inline-flex h-12 items-center justify-center rounded-full px-7 text-sm font-bold tracking-wide uppercase transition-colors shadow-md">
+              Shkruaj Kryetarit
+            </a>
+            <a id="hero-cta-link" class="text-paper hover:text-red-bright inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4" href="#letra">
+              <span>Pse krijohet kjo hapësirë?</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 01: LETRA -->
+    <section id="letra" class="border-ink bg-cream relative isolate scroll-mt-20 border-t">
+      <img id="letra-bg-img" src="brand/Bashkia-kamez.webp" alt="Letra Background" aria-hidden="true" class="absolute inset-0 -z-20 h-full w-full object-cover object-[50%_60%]"/>
+      <div aria-hidden="true" class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(247,245,241,0.75)_0%,rgba(247,245,241,0.55)_40%,rgba(247,245,241,0.25)_100%)]"></div>
+      
+      <div class="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_1.4fr] lg:gap-20 lg:px-8 lg:py-28">
+        <div class="flex flex-col gap-6 lg:self-start">
+          <p class="flex items-center gap-3 text-[11px] font-medium tracking-[0.2em] uppercase text-ash-2">
+            <span aria-hidden="true" class="bg-red h-px w-8"></span>
+            <span id="letra-tag">01 · Mesazhi i Kryetarit</span>
+          </p>
+          <h2 id="letra-heading" class="font-display text-display-lg font-medium text-balance">
+            <span class="text-red">Pse krijohet</span> kjo hapësirë për Kamzën?
+          </h2>
+        </div>
+
+        <div class="text-ink flex flex-col gap-7 rounded-lg bg-white p-7 sm:p-12 lg:self-start shadow-sm border border-line">
+          <div class="text-ink-2 flex flex-col gap-5 text-base leading-relaxed md:text-lg">
+            <p id="letra-p1" class="drop-cap">
+              Bashkia Kamëz është shtëpia e përbashkët e më shumë se 130 mijë qytetarëve nga Kamza, Paskuqani, Valiasit dhe të gjitha njësitë tona administrative. Zhvillimi i qytetit tonë, nga transformimi i rrugëve e ndriçimit, te shkollat e reja, parqet e hapësirat publike, ka kuptim vetëm kur ecën krah për krah me zërin dhe nevojat e përditshme të çdo banori.
+            </p>
+            <p id="letra-p2">
+              Kjo platformë lind si një urë e drejtpërdrejtë midis çdo qytetari të Kamzës dhe Kryetarit të Bashkisë. Çdo pyetje për investimet, çdo kërkesë për shërbimet publike, çdo kritikë konstruktive apo propozim për përmirësimin e lagjes suaj do të trajtohet me përparësi, transparencë dhe përgjegjshmëri nga ekipi ynë.
+            </p>
+          </div>
+          <blockquote class="border-red relative border-l-4 py-2 pl-6">
+            <p id="letra-quote" class="font-display text-red text-display-md leading-tight font-medium text-balance">
+              Kamza zhvillohet më shpejt dhe më mirë kur bashkëbisedojmë hapur dhe dëgjojmë çdo qytetar pa asnjë ndërmjetës.
+            </p>
+          </blockquote>
+          <a id="letra-btn" class="bg-red text-paper hover:bg-red-deep inline-flex h-12 items-center gap-2 self-start rounded-full px-6 text-base font-medium transition-colors" href="#shkruaj">
+            Drejtohu Kryetarit <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02: KONCEPTI (NGA ZËRI TE PËRGJIGJA) -->
+    <section id="pergjigjja" class="border-ink bg-cream relative isolate scroll-mt-20 border-t">
+      <img id="koncepti-img" src="brand/kamez-takim-projekteve.jpg" alt="Koncepti Image" class="absolute inset-y-0 left-0 -z-20 hidden h-full w-[55%] object-cover object-[40%_60%] lg:block"/>
+      <div aria-hidden="true" class="absolute inset-0 -z-10 hidden bg-[linear-gradient(90deg,rgba(247,245,241,0)_0%,rgba(247,245,241,0.08)_30%,rgba(247,245,241,0.75)_44%,rgba(247,245,241,1)_55%,rgba(247,245,241,1)_100%)] lg:block"></div>
+      <div aria-hidden="true" class="absolute inset-x-0 top-0 -z-10 hidden h-[45%] bg-[linear-gradient(180deg,rgba(247,245,241,0.92)_0%,rgba(247,245,241,0.7)_55%,rgba(247,245,241,0)_100%)] lg:block"></div>
+      
+      <div class="mx-auto grid max-w-7xl gap-14 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_1.4fr] lg:gap-24 lg:px-8 lg:py-28">
+        <div class="flex flex-col gap-8 lg:self-start">
+          <p class="flex items-center gap-3 text-[11px] font-medium tracking-[0.2em] uppercase text-ash-2">
+            <span aria-hidden="true" class="bg-red h-px w-8"></span>
+            <span id="koncepti-tag">02 · Qasja Jonë</span>
+          </p>
+          <h2 id="koncepti-heading" class="font-display text-display-lg font-medium text-balance">
+            Nga zëri <span class="text-red">te zgjidhja konkrete</span>
+          </h2>
+        </div>
+
+        <div class="flex flex-col gap-6">
+          <div id="koncepti-paragraphs" class="text-ink-2 flex flex-col gap-4 text-base leading-relaxed md:text-[17px]">
+            <!-- Dynamic paragraphs -->
+          </div>
+          <blockquote class="border-red border-l-4 py-2 pl-6">
+            <p id="koncepti-quote" class="font-display text-red text-display-sm leading-tight font-medium text-balance">
+              Sepse angazhimi ynë është që çdo fjalë e qytetarit të kthehet në punë konkrete për Bashkinë Kamëz.
+            </p>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 03: TEMAT -->
+    <section id="temat" class="border-ink bg-cream relative isolate scroll-mt-20 overflow-hidden border-t">
+      <img id="temat-img" src="brand/pastrimi-ok.jpg" alt="Shërbimet dhe qyteti i Kamzës" class="absolute inset-y-0 right-0 -z-20 hidden h-full w-[60%] object-cover object-[100%_55%] lg:block"/>
+      <div aria-hidden="true" class="absolute inset-0 -z-10 hidden bg-[linear-gradient(90deg,rgba(247,245,241,1)_0%,rgba(247,245,241,1)_42%,rgba(247,245,241,0.7)_52%,rgba(247,245,241,0.08)_66%,rgba(247,245,241,0)_100%)] lg:block"></div>
+      
+      <div class="mx-auto flex min-h-[32rem] max-w-7xl flex-col justify-center gap-10 px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div class="flex max-w-2xl flex-col gap-6">
+          <p class="flex items-center gap-3 text-[11px] font-medium tracking-[0.2em] uppercase text-ash-2">
+            <span aria-hidden="true" class="bg-red h-px w-8"></span>
+            <span id="temat-tag">03 · Fushat e Komunikimit</span>
+          </p>
+          <h2 id="temat-heading" class="font-display text-display-lg font-medium text-balance">
+            Çfarë mund <span class="text-red">të kërkoni apo propozoni?</span>
+          </h2>
+          <p id="temat-subtitle" class="font-display text-display-sm font-medium text-balance">
+            Gjithçka që lidhet me jetën tuaj të përditshme, lagjen, shërbimet dhe të ardhmen e Bashkisë Kamëz.
+          </p>
+          <div id="temat-desc" class="text-ink-2 flex flex-col gap-4 text-base leading-relaxed md:text-[17px]">
+            <p>Mund të pyesni për rrugët, infrastrukturën, ndriçimin publik, furnizimin me ujë, pastrimin dhe menaxhimin e mbetjeve, parqet e këndet e lojërave, çerdhet, kopshtet dhe shkollat, si dhe shërbimet administrative vendore.</p>
+            <p>Nuk ka çështje të vogël kur bëhet fjalë për mirëqenien e banorëve tanë.</p>
+          </div>
+          <div class="pt-2">
+            <a id="temat-btn" href="#shkruaj" class="bg-red text-paper hover:bg-red-deep inline-flex h-11 items-center justify-center rounded-full px-6 text-sm font-medium transition-colors">
+              Shkruaj tani <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04: GARANCITË -->
+    <section id="garancite" class="border-ink bg-ink text-ink relative isolate scroll-mt-20 border-t">
+      <img id="garancite-bg-img" src="brand/maratona-kamzes.jpg" alt="Garancite Background" class="absolute inset-0 -z-20 h-full w-full object-cover object-center opacity-40"/>
+      <div class="mx-auto flex max-w-7xl flex-col gap-12 px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div class="flex flex-col gap-5">
+          <p class="flex items-center gap-3 text-[11px] font-medium tracking-[0.2em] uppercase text-paper/70">
+            <span aria-hidden="true" class="bg-red h-px w-8"></span>
+            <span id="garancite-tag">04 · Garancitë</span>
+          </p>
+          <h2 id="garancite-heading" class="font-display text-display-lg text-red font-medium text-balance">
+            Cilat janë garancitë?
+          </h2>
+        </div>
+
+        <ul id="garancite-grid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Rendered dynamically -->
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 05: SHKRUAJ MESAZHIN TËND -->
+    <section id="shkruaj" class="bg-paper text-ink border-ink relative scroll-mt-20 overflow-hidden border-t py-20 lg:py-28">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col gap-3 text-center mb-12">
+          <p class="flex items-center justify-center gap-3 text-[11px] font-medium tracking-[0.2em] uppercase text-ash-2">
+            <span aria-hidden="true" class="bg-red h-px w-8"></span>
+            <span id="shkruaj-tag">05 · Dialog</span>
+          </p>
+          <h2 id="shkruaj-heading" class="font-display text-display-lg font-medium text-balance">
+            Shkruaj <span class="text-red">mesazhin tënd</span>
+          </h2>
+          <p id="shkruaj-subtitle" class="text-ash-2 text-sm max-w-lg mx-auto">
+            Zgjidhni profilin të cilit dëshironi t'i drejtoheni, llojin e mesazhit dhe shprehuni lirisht.
+          </p>
+        </div>
+
+        <!-- Form Card -->
+        <div class="bg-cream rounded-2xl border border-line p-6 sm:p-10 shadow-card">
+          <form id="main-inquiry-form" onsubmit="handleMainInquirySubmit(event)" class="space-y-6">
+            
+            <!-- Profile Selector -->
+            <div>
+              <label class="block text-xs font-semibold tracking-wider uppercase text-ash-2 mb-2">
+                Zgjidhni Profilin e Dialogut *
+              </label>
+              <select id="main-profileId" required class="fol-input font-medium" onchange="syncCategoriesWithProfile()">
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+
+            <!-- Message Type Badges (Pyetje, Kritikë, Shqetësim, Propozim) -->
+            <div>
+              <label class="block text-xs font-semibold tracking-wider uppercase text-ash-2 mb-2">
+                Lloji i Kontributit *
+              </label>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="type-pills-selector">
+                <label class="cursor-pointer">
+                  <input type="radio" name="contributionType" value="Pyetje" checked class="sr-only peer">
+                  <div class="rounded-full py-2 px-3 text-center text-xs font-bold uppercase tracking-wider bg-[#f6b7cf]/40 border border-[#f6b7cf] text-ink peer-checked:bg-[#f6b7cf] peer-checked:shadow-sm transition-all">
+                    Pyetje
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="contributionType" value="Kritikë" class="sr-only peer">
+                  <div class="rounded-full py-2 px-3 text-center text-xs font-bold uppercase tracking-wider bg-[#f2c14e]/40 border border-[#f2c14e] text-ink peer-checked:bg-[#f2c14e] peer-checked:shadow-sm transition-all">
+                    Kritikë
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="contributionType" value="Shqetësime" class="sr-only peer">
+                  <div class="rounded-full py-2 px-3 text-center text-xs font-bold uppercase tracking-wider bg-[#5cc2b6]/40 border border-[#5cc2b6] text-ink peer-checked:bg-[#5cc2b6] peer-checked:shadow-sm transition-all">
+                    Shqetësim
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="contributionType" value="Propozime" class="sr-only peer">
+                  <div class="rounded-full py-2 px-3 text-center text-xs font-bold uppercase tracking-wider bg-[#b3b4ea]/40 border border-[#b3b4ea] text-ink peer-checked:bg-[#b3b4ea] peer-checked:shadow-sm transition-all">
+                    Propozim
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Category -->
+            <div>
+              <label class="block text-xs font-semibold tracking-wider uppercase text-ash-2 mb-2">
+                Fusha / Kategoria *
+              </label>
+              <select id="main-category" required class="fol-input">
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+
+            <!-- Subject -->
+            <div>
+              <label class="block text-xs font-semibold tracking-wider uppercase text-ash-2 mb-2">
+                Titulli / Tema e Dialogut *
+              </label>
+              <input type="text" id="main-subject" required placeholder="Përmblidhni shkurtimisht thelbin e pyetjes ose propozimit tuaj" class="fol-input">
+            </div>
+
+            <!-- Message Body -->
+            <div>
+              <label class="block text-xs font-semibold tracking-wider uppercase text-ash-2 mb-2">
+                Përmbajtja e Plotë e Mesazhit *
+              </label>
+              <textarea id="main-message" rows="5" required placeholder="Shkruani qartë dhe me respekt mendimin, shqetësimin apo propozimin tuaj..." class="fol-input"></textarea>
+            </div>
+
+            <!-- User Authentication Notice Banner in Form -->
+            <div id="form-auth-banner" class="bg-paper p-4 rounded-xl border border-line flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="size-9 rounded-full bg-cream flex items-center justify-center shrink-0 border border-line">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                    <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 id="form-auth-heading" class="text-xs font-bold text-ink">Identifikohuni me Google</h4>
+                  <p id="form-auth-desc" class="text-[11px] text-ash-2">Për të garantuar regjistrimin e saktë dhe përgjigjen zyrtare</p>
+                </div>
+              </div>
+              <button type="button" id="form-auth-action-btn" onclick="openAuthModal()" class="shrink-0 bg-white hover:bg-cream border border-line text-ink px-3 py-1.5 rounded-full text-xs font-bold shadow-sm transition-colors">
+                Kyçu me Google
+              </button>
+            </div>
+
+            <!-- Sender Identity Details (Name, Email, Phone) -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-xs font-semibold tracking-wider uppercase text-ash-2 mb-2">
+                  Emri & Mbiemri *
+                </label>
+                <input type="text" id="main-senderName" required placeholder="Emri juaj i plotë" class="fol-input">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold tracking-wider uppercase text-ash-2 mb-2">
+                  Email-i Juaj *
+                </label>
+                <input type="email" id="main-senderEmail" required placeholder="shembull@email.al" class="fol-input">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold tracking-wider uppercase text-ash-2 mb-2">
+                  Numri i Telefonit *
+                </label>
+                <input type="tel" id="main-senderPhone" required placeholder="+355 69 123 4567" class="fol-input">
+              </div>
+            </div>
+
+            <!-- Anonymity Guarantee -->
+            <div class="bg-paper p-4 rounded-xl border border-line flex items-start gap-3">
+              <input type="checkbox" id="main-isAnonymous" class="mt-1 size-4 rounded border-line accent-red">
+              <div>
+                <label for="main-isAnonymous" class="text-xs font-bold text-ink cursor-pointer">
+                  Mbrojtja e Identitetit (Dërgim Anonim në Publik)
+                </label>
+                <p class="text-xs text-ash mt-0.5 leading-relaxed">
+                  Nëse pyetja juaj merr përgjigje publike, emri juaj nuk do të shfaqet në faqe por do të shkruhet "Qytetar Anonim".
+                </p>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-2">
+              <button id="shkruaj-submit-btn" type="submit" class="w-full bg-red text-paper hover:bg-red-deep h-12 rounded-full font-bold uppercase tracking-wider text-sm transition-all shadow-md active:translate-y-px">
+                Dërgo Mesazhin në Dialog
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 06: PROCESI -->
+    <section id="procesi" class="border-ink bg-cream relative isolate scroll-mt-20 border-t">
+      <img id="procesi-bg-img" src="brand/Bashkia-kamez.webp" alt="Procesi Background" class="absolute inset-0 -z-20 h-full w-full object-cover object-center"/>
+      <div aria-hidden="true" class="bg-cream/40 absolute inset-0 -z-10"></div>
+      
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:pt-28 xl:pb-0">
+        <div class="grid items-end gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div class="flex flex-col items-end gap-3 p-7 text-right sm:p-8 md:col-span-2 xl:col-start-1 xl:row-start-1 xl:self-end">
+            <p class="flex items-center gap-3 text-[11px] font-medium tracking-[0.2em] uppercase text-ash-2">
+              <span aria-hidden="true" class="bg-red h-px w-8"></span>
+              <span id="procesi-tag">06 · Si Funksionon</span>
+            </p>
+            <h2 id="procesi-heading" class="font-display text-display-lg font-medium text-balance">
+              Nga pyetja te<br/><span class="text-red">zgjidhja konkrete</span>
+            </h2>
+          </div>
+
+          <div id="procesi-cards-container" class="contents">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 07: PROFILET E DISPONUESHME -->
+    <section id="profilet" class="bg-paper text-ink border-ink border-t py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+          <div>
+            <p class="flex items-center gap-3 text-[11px] font-medium tracking-[0.2em] uppercase text-ash-2 mb-3">
+              <span aria-hidden="true" class="bg-red h-px w-8"></span>Profilet
+            </p>
+            <h2 class="font-display text-display-lg font-medium">
+              Zgjidhni <span class="text-red">Përfaqësuesin</span>
+            </h2>
+          </div>
+          <button onclick="openProfileEditModal()" class="inline-flex items-center gap-2 px-4 py-2 border border-line rounded-full text-xs font-bold uppercase tracking-wider text-ink hover:border-ink transition-colors">
+            <i class="fa-solid fa-plus text-xs"></i> Shto Profil të Ri
+          </button>
+        </div>
+
+        <!-- Profiles Showcase Grid -->
+        <div id="profiles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 08: TRANSPARENCA & FEED PUBLIK -->
+    <section id="transparenca" class="bg-cream text-ink border-ink border-t py-20 lg:py-28">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
+          <div>
+            <p class="flex items-center gap-3 text-[11px] font-medium tracking-[0.2em] uppercase text-ash-2 mb-3">
+              <span aria-hidden="true" class="bg-red h-px w-8"></span>Transparenca
+            </p>
+            <h2 class="font-display text-display-lg font-medium">
+              Pyetjet & <span class="text-red">Përgjigjet Publike</span>
+            </h2>
+          </div>
+          
+          <!-- Search input -->
+          <div class="w-full sm:w-72">
+            <input type="text" id="public-feed-search" onkeyup="renderPublicFeed()" placeholder="Kërko në pyetjet e bëra..." class="fol-input text-xs">
+          </div>
+        </div>
+
+        <div id="public-feed-container" class="space-y-4">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 09: NDIQ STATUSIN -->
+    <section id="ndiq-statusin" class="bg-paper text-ink border-ink border-t py-20 lg:py-24">
+      <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 text-center">
+        <p class="flex items-center justify-center gap-3 text-[11px] font-medium tracking-[0.2em] uppercase text-ash-2 mb-3">
+          <span aria-hidden="true" class="bg-red h-px w-8"></span>Statusi
+        </p>
+        <h2 class="font-display text-display-md font-medium mb-3">
+          Ndiq Statusin e <span class="text-red">Mesazhit Tënd</span>
+        </h2>
+        <p class="text-ash-2 text-sm mb-8">
+          Vendosni kodin tuaj të ndjekjes (p.sh. <code class="bg-cream border border-line px-2 py-0.5 rounded font-mono text-red font-bold">FOL-10492</code>) për të parë ecurinë e shqyrtimit.
+        </p>
+
+        <form onsubmit="handlePublicTrack(event)" class="flex gap-2 max-w-md mx-auto mb-6">
+          <input type="text" id="track-code-box" required placeholder="FOL-XXXXX" class="fol-input font-mono uppercase text-center text-lg font-bold">
+          <button type="submit" class="bg-red text-paper hover:bg-red-deep px-6 rounded-full font-bold uppercase tracking-wider text-xs whitespace-nowrap transition-colors">
+            Kontrollo
+          </button>
+        </form>
+
+        <div id="public-track-result" class="hidden text-left bg-cream p-6 rounded-xl border border-line mt-6 shadow-sm"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- SITE FOOTER -->
+  <!-- ======================================================== -->
+  <footer class="border-red bg-paper border-t-4 mt-auto">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr] lg:px-8">
+      
+      <div class="flex flex-col gap-5">
+        <span class="inline-flex items-center gap-3 text-ink">
+          <img id="footer-logo-img" src="brand/logo-bashkia-kamez.png" alt="Logo Bashkia Kamëz" aria-hidden="true" class="w-auto select-none h-14 object-contain"/>
+          <span class="flex flex-col leading-none">
+            <span id="footer-brand-title" class="font-display font-medium tracking-tight whitespace-nowrap text-lg">Fol me Kryetarin</span>
+            <span id="footer-brand-sub" class="mt-1 text-[11px] font-medium tracking-wide uppercase text-ash-2">Bashkia Kamëz · Zyra e Komunikimit</span>
+          </span>
+        </span>
+        <p id="footer-description" class="text-ash-2 max-w-sm text-sm leading-relaxed">
+          Një hapësirë e re e drejtpërdrejtë komunikimi me Kryetarin e Bashkisë Kamëz, Rakip Suli. E hapur për të gjithë qytetarët e Kamzës, Paskuqanit dhe njësive administrative: pyetje, kërkesa, shqetësime, propozime.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-3 text-sm">
+        <p class="text-ash-2 text-xs font-medium tracking-wide uppercase">Platforma</p>
+        <a class="hover:text-red transition-colors" href="#letra">Pse krijohet kjo hapësirë</a>
+        <a class="hover:text-red transition-colors" href="#pergjigjja">Nga zëri te zgjidhja</a>
+        <a class="hover:text-red transition-colors" href="#garancite">Garancitë</a>
+        <a class="hover:text-red transition-colors" href="#transparenca">Pyetje & Përgjigje</a>
+      </div>
+
+      <div class="flex flex-col gap-3 text-sm">
+        <p class="text-ash-2 text-xs font-medium tracking-wide uppercase">Informacion</p>
+        <a class="hover:text-red transition-colors" href="#garancite">Privatësia e të dhënave</a>
+        <a class="hover:text-red transition-colors" href="#garancite">Moderimi & Transparenca</a>
+        <a class="hover:text-red transition-colors" href="javascript:void(0)" onclick="openAdminModal()">Paneli i Administrimit</a>
+      </div>
+    </div>
+
+    <div class="border-line border-t">
+      <div class="text-ash mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-5 text-xs sm:px-6 lg:px-8">
+        <span class="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <span id="footer-copyright">© 2026 Bashkia Kamëz. Të gjitha të drejtat e rezervuara.</span>
+        </span>
+        <span class="flex items-center gap-2">
+          <span aria-hidden="true" class="bg-red size-1.5 rounded-full"></span>
+          <span id="footer-disclaimer">Identifikimi bëhet me llogari të verifikuar Google ose me të dhëna të sakta qytetare</span>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- COMPREHENSIVE ADMIN & CUSTOMIZER MODAL (4 TABS) -->
+  <!-- ======================================================== -->
+  <div id="admin-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 fol-modal-backdrop">
+    <div class="bg-paper rounded-2xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[92vh] overflow-y-auto border border-line">
+      
+      <!-- Close Button -->
+      <button onclick="closeModal('admin-modal')" class="absolute top-5 right-5 text-ash-2 hover:text-ink text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between border-b border-line pb-4 mb-6">
+        <div>
+          <span class="bg-red/10 text-red px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider">Paneli Qendror</span>
+          <h3 class="font-display text-2xl font-medium mt-1">Kontrolli i Plotë i Faqes & Mesazheve</h3>
+        </div>
+      </div>
+
+      <!-- Admin Tabs Navigation -->
+      <div class="flex flex-wrap gap-2 border-b border-line mb-6 pb-2">
+        <button onclick="switchAdminTab('inbox')" id="adm-tab-inbox" class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-ink text-paper">
+          <i class="fa-solid fa-envelope mr-1.5"></i> Mesazhet (<span id="admin-inbox-count">0</span>)
+        </button>
+        <button onclick="switchAdminTab('media')" id="adm-tab-media" class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider text-ash-2 hover:text-ink">
+          <i class="fa-solid fa-images mr-1.5"></i> Menaxhimi i Imazheve & Fotove
+        </button>
+        <button onclick="switchAdminTab('texts')" id="adm-tab-texts" class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider text-ash-2 hover:text-ink">
+          <i class="fa-solid fa-file-lines mr-1.5"></i> Ndrysho Çdo Tekst
+        </button>
+        <button onclick="switchAdminTab('profiles')" id="adm-tab-profiles" class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider text-ash-2 hover:text-ink">
+          <i class="fa-solid fa-users mr-1.5"></i> Profilet
+        </button>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- TAB 1: INBOX -->
+      <!-- ============================================== -->
+      <div id="adm-view-inbox">
+        <div id="admin-inbox-list" class="space-y-4">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- TAB 2: MEDIA & PHOTO MANAGER (UPLOAD & ASSIGN) -->
+      <!-- ============================================== -->
+      <div id="adm-view-media" class="hidden space-y-6">
+        
+        <!-- Upload Box -->
+        <div class="border-2 border-dashed border-line hover:border-red rounded-2xl p-6 text-center bg-cream/50 transition-colors">
+          <i class="fa-solid fa-cloud-arrow-up text-3xl text-ash-2 mb-2"></i>
+          <h4 class="font-display font-medium text-base text-ink">Ngarko Foto të Re</h4>
+          <p class="text-xs text-ash-2 mb-4">Zgjidhni foto nga kompjuteri juaj (JPG, PNG, WebP, SVG)</p>
+          <input type="file" id="media-file-input" accept="image/*" class="hidden" onchange="handleFileUpload(event)">
+          <button type="button" onclick="document.getElementById('media-file-input').click()" class="bg-red text-paper hover:bg-red-deep px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-colors">
+            <i class="fa-solid fa-upload mr-1.5"></i> Zgjidh Skedarin
+          </button>
+        </div>
+
+        <!-- Current Images on Landing Page Table -->
+        <div class="bg-cream/40 p-5 rounded-2xl border border-line">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 border-b border-line pb-3">
+            <div>
+              <span class="bg-red/10 text-red text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">Pamja e Drejtpërdrejtë</span>
+              <h4 class="font-display font-medium text-lg text-ink mt-1">Fotot Aktuale të Landing Page</h4>
+              <p class="text-xs text-ash-2">Shikoni foton ekzistuese për secilin seksion dhe zëvendësojeni me 1 klikim.</p>
+            </div>
+            <button type="button" onclick="loadMediaLibrary()" class="text-xs font-semibold text-ash-2 hover:text-ink flex items-center gap-1.5 self-start sm:self-center">
+              <i class="fa-solid fa-arrows-rotate"></i> Rifresko Pamjen
+            </button>
+          </div>
+
+          <!-- Section Cards Grid (Active Images) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="active-images-grid">
+            <!-- Populated dynamically with live preview + direct replace controls -->
+          </div>
+        </div>
+
+        <!-- Media Gallery -->
+        <div class="pt-4 border-t border-line">
+          <h4 class="font-display font-medium text-lg text-ink mb-3">Galeria e të Gjitha Imazheve</h4>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3" id="media-gallery-grid">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- TAB 3: TEXTS CUSTOMIZER (EVERY SECTION) -->
+      <!-- ============================================== -->
+      <div id="adm-view-texts" class="hidden">
+        <form onsubmit="handleSaveAllTexts(event)" class="space-y-8 text-left">
+          
+          <!-- Section 0: Header & Hero -->
+          <div class="bg-cream p-5 rounded-xl border border-line space-y-4">
+            <div class="flex items-center justify-between border-b border-line pb-2">
+              <h4 class="font-display font-bold text-base text-ink">1. Header & Hero Banner</h4>
+              <span class="text-[10px] uppercase font-bold text-ash-2">Seksioni Kryesor</span>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Titulli i Faqes (Header)</label>
+                <input type="text" id="cfg-header-title" class="fol-input text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Nëntitulli (Zyra / Departamenti)</label>
+                <input type="text" id="cfg-header-subtitle" class="fol-input text-sm">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Titulli Kryesor i Hero</label>
+              <input type="text" id="cfg-hero-heading" class="fol-input text-sm">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Përshkrimi i Hero Banner</label>
+              <textarea id="cfg-hero-subtext" rows="3" class="fol-input text-sm"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">4 Pilulat Karakteristike (të ndara me presje)</label>
+              <input type="text" id="cfg-hero-pills" placeholder="Pyetje, Kritikë, Shqetësime, Propozime" class="fol-input text-sm">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Teksti i Butonit Kryesor</label>
+                <input type="text" id="cfg-hero-cta" class="fol-input text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Teksti i Lidhjes Poshtë</label>
+                <input type="text" id="cfg-hero-link" class="fol-input text-sm">
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 1: Letra -->
+          <div class="bg-cream p-5 rounded-xl border border-line space-y-4">
+            <div class="flex items-center justify-between border-b border-line pb-2">
+              <h4 class="font-display font-bold text-base text-ink">2. Seksioni 01 · Letra</h4>
+              <span class="text-[10px] uppercase font-bold text-ash-2">Pse krijohet kjo hapësirë</span>
+            </div>
+            
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Titulli i Seksionit</label>
+              <input type="text" id="cfg-letra-title" class="fol-input text-sm">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Paragrafi 1 (Drop-Cap)</label>
+              <textarea id="cfg-letra-p1" rows="3" class="fol-input text-sm"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Paragrafi 2</label>
+              <textarea id="cfg-letra-p2" rows="3" class="fol-input text-sm"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Thënia / Citati Kryesor (Quote)</label>
+              <textarea id="cfg-letra-quote" rows="2" class="fol-input text-sm"></textarea>
+            </div>
+          </div>
+
+          <!-- Section 2: Koncepti -->
+          <div class="bg-cream p-5 rounded-xl border border-line space-y-4">
+            <div class="flex items-center justify-between border-b border-line pb-2">
+              <h4 class="font-display font-bold text-base text-ink">3. Seksioni 02 · Koncepti</h4>
+              <span class="text-[10px] uppercase font-bold text-ash-2">Nga zëri te përgjigja</span>
+            </div>
+            
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Titulli i Konceptit</label>
+              <input type="text" id="cfg-koncepti-title" class="fol-input text-sm">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Paragrafët e Konceptit (çdo paragraf me rresht të ri)</label>
+              <textarea id="cfg-koncepti-paragraphs" rows="5" class="fol-input text-sm"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Thënia Kryesore (Quote)</label>
+              <input type="text" id="cfg-koncepti-quote" class="fol-input text-sm">
+            </div>
+          </div>
+
+          <!-- Section 3: Temat -->
+          <div class="bg-cream p-5 rounded-xl border border-line space-y-4">
+            <div class="flex items-center justify-between border-b border-line pb-2">
+              <h4 class="font-display font-bold text-base text-ink">4. Seksioni 03 · Temat</h4>
+              <span class="text-[10px] uppercase font-bold text-ash-2">Çfarë mund të diskutojmë</span>
+            </div>
+            
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Titulli i Temave</label>
+              <input type="text" id="cfg-temat-title" class="fol-input text-sm">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Nëntitulli</label>
+              <input type="text" id="cfg-temat-subtitle" class="fol-input text-sm">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Përshkrimi</label>
+              <textarea id="cfg-temat-desc" rows="3" class="fol-input text-sm"></textarea>
+            </div>
+          </div>
+
+          <!-- Section 4: Garancitë (6 Cards) -->
+          <div class="bg-cream p-5 rounded-xl border border-line space-y-4">
+            <div class="flex items-center justify-between border-b border-line pb-2">
+              <h4 class="font-display font-bold text-base text-ink">5. Seksioni 04 · Garancitë (6 Kartelat)</h4>
+              <span class="text-[10px] uppercase font-bold text-ash-2">Kartelat me Ngjyra</span>
+            </div>
+            
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Titulli i Seksionit të Garancive</label>
+              <input type="text" id="cfg-garancite-title" class="fol-input text-sm">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="cfg-garancite-cards-editor">
+              <!-- Dynamically populated 6 card editors -->
+            </div>
+          </div>
+
+          <!-- Section 5: Shkruaj -->
+          <div class="bg-cream p-5 rounded-xl border border-line space-y-4">
+            <div class="flex items-center justify-between border-b border-line pb-2">
+              <h4 class="font-display font-bold text-base text-ink">6. Seksioni 05 · Formulari i Dialogut</h4>
+              <span class="text-[10px] uppercase font-bold text-ash-2">Shkruaj mesazhin</span>
+            </div>
+            
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Titulli</label>
+              <input type="text" id="cfg-shkruaj-title" class="fol-input text-sm">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Nëntitulli</label>
+              <input type="text" id="cfg-shkruaj-subtitle" class="fol-input text-sm">
+            </div>
+          </div>
+
+          <!-- Section 6: Procesi -->
+          <div class="bg-cream p-5 rounded-xl border border-line space-y-4">
+            <div class="flex items-center justify-between border-b border-line pb-2">
+              <h4 class="font-display font-bold text-base text-ink">7. Seksioni 06 · Procesi</h4>
+              <span class="text-[10px] uppercase font-bold text-ash-2">Çfarë ndodh me mesazhin</span>
+            </div>
+            
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Titulli i Procesit</label>
+              <input type="text" id="cfg-procesi-title" class="fol-input text-sm">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="cfg-procesi-cards-editor">
+              <!-- Dynamically populated 4 step editors -->
+            </div>
+          </div>
+
+          <!-- Section 7: Footer -->
+          <div class="bg-cream p-5 rounded-xl border border-line space-y-4">
+            <div class="flex items-center justify-between border-b border-line pb-2">
+              <h4 class="font-display font-bold text-base text-ink">8. Footer & Ligjore</h4>
+              <span class="text-[10px] uppercase font-bold text-ash-2">Fundi i Faqes</span>
+            </div>
+            
+            <div>
+              <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Përshkrimi në Footer</label>
+              <textarea id="cfg-footer-desc" rows="2" class="fol-input text-sm"></textarea>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Copyright</label>
+                <input type="text" id="cfg-footer-copy" class="fol-input text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Njoftimi Ligjor (Disclaimer)</label>
+                <input type="text" id="cfg-footer-disc" class="fol-input text-sm">
+              </div>
+            </div>
+          </div>
+
+          <!-- Save Button -->
+          <div class="flex justify-end pt-4 border-t border-line">
+            <button type="submit" class="bg-red text-paper hover:bg-red-deep px-8 py-3 rounded-full font-bold uppercase text-xs tracking-wider shadow-md">
+              <i class="fa-solid fa-floppy-disk mr-2"></i> Ruaj të Gjitha Tekstet në Landing Page
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- TAB 4: PROFILES MANAGEMENT -->
+      <!-- ============================================== -->
+      <div id="adm-view-profiles" class="hidden space-y-4">
+        <div class="flex justify-between items-center mb-4">
+          <h4 class="font-display font-medium text-lg text-ink">Menaxhimi i Profileve</h4>
+          <button type="button" onclick="openProfileEditModal()" class="bg-ink text-paper hover:bg-red px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-colors">
+            <i class="fa-solid fa-plus mr-1"></i> Shto Profil
+          </button>
+        </div>
+        <div id="admin-profiles-list" class="space-y-3">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: IMAGE PICKER & ASSIGNER -->
+  <!-- ======================================================== -->
+  <div id="image-picker-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 fol-modal-backdrop">
+    <div class="bg-paper rounded-2xl max-w-xl w-full p-6 shadow-2xl relative max-h-[85vh] overflow-y-auto border border-line">
+      <button onclick="closeModal('image-picker-modal')" class="absolute top-5 right-5 text-ash-2 hover:text-ink text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <span class="bg-red/10 text-red px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider">Përzgjedhje Fotoje</span>
+      <h3 id="image-picker-target-title" class="font-display text-xl font-medium mt-1 mb-4">Cakto Foton për këtë Seksion</h3>
+
+      <input type="hidden" id="image-picker-target-field">
+
+      <div class="mb-4">
+        <label class="block text-xs font-semibold uppercase text-ash-2 mb-1.5">Ose Ngarko Foto të Re Drejtpërdrejt:</label>
+        <input type="file" id="picker-direct-upload" accept="image/*" class="fol-input text-xs" onchange="handlePickerDirectUpload(event)">
+      </div>
+
+      <div class="pt-3 border-t border-line">
+        <label class="block text-xs font-semibold uppercase text-ash-2 mb-2">Zgjidhni nga Fotot Ekzistuese:</label>
+        <div class="grid grid-cols-3 sm:grid-cols-4 gap-2.5" id="picker-gallery-grid">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: PËRGJIGJU PYETJES -->
+  <!-- ======================================================== -->
+  <div id="reply-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 fol-modal-backdrop">
+    <div class="bg-paper rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto border border-line">
+      <button onclick="closeModal('reply-modal')" class="absolute top-5 right-5 text-ash-2 hover:text-ink text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <span class="bg-red/10 text-red px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider">Përgjigje Zyrtare</span>
+      <h3 id="reply-subject" class="font-display text-xl font-medium mt-1 mb-2">Tema e Pyetjes</h3>
+      <div id="reply-question-text" class="bg-cream p-4 rounded-xl border border-line text-xs text-ink-2 mb-4"></div>
+
+      <form onsubmit="handleSendReply(event)" class="space-y-4">
+        <input type="hidden" id="reply-inquiry-id">
+        <div>
+          <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Përgjigja Zyrtare *</label>
+          <textarea id="reply-text" rows="5" required placeholder="Shkruani përgjigjen tuaj..." class="fol-input text-sm"></textarea>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <input type="checkbox" id="reply-isPublic" class="size-4 accent-red">
+          <label for="reply-isPublic" class="text-xs font-bold text-ink cursor-pointer">
+            Publiko në Feed-in e Transparencës
+          </label>
+        </div>
+
+        <div class="flex justify-end gap-2 pt-2">
+          <button type="button" onclick="closeModal('reply-modal')" class="px-4 py-2 text-xs font-bold uppercase text-ash-2 hover:text-ink">Anulo</button>
+          <button type="submit" class="bg-red text-paper hover:bg-red-deep px-6 py-2.5 rounded-full font-bold uppercase text-xs tracking-wider">
+            Dërgo Përgjigjen
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: SHTO / REDAKTO PROFIL -->
+  <!-- ======================================================== -->
+  <div id="profile-edit-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 fol-modal-backdrop">
+    <div class="bg-paper rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto border border-line">
+      <button onclick="closeModal('profile-edit-modal')" class="absolute top-5 right-5 text-ash-2 hover:text-ink text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <span class="bg-red/10 text-red px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider">Menaxhimi i Profileve</span>
+      <h3 id="profile-edit-title" class="font-display text-2xl font-medium mt-1 mb-4">Shto / Modifiko Profil</h3>
+
+      <form onsubmit="handleSaveCustomProfile(event)" class="space-y-4">
+        <input type="hidden" id="edit-profile-id">
+
+        <div>
+          <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Emri i Plotë dhe Titulli *</label>
+          <input type="text" id="edit-profile-name" required placeholder="P.sh. Rakip Suli / Kryetar i Bashkisë Kamëz" class="fol-input text-sm">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Roli / Departamenti *</label>
+          <input type="text" id="edit-profile-role" required placeholder="P.sh. Drejtoria e Shërbimeve Publike & Pastrimit" class="fol-input text-sm">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Fotoja e Profilit (URL ose Ngarko)</label>
+          <div class="flex gap-2">
+            <input type="text" id="edit-profile-avatar" placeholder="brand/... ose uploads/..." class="fol-input text-sm">
+            <button type="button" onclick="openImagePickerFor('profile-avatar')" class="bg-cream hover:bg-line border border-line px-3 rounded-lg text-xs font-bold uppercase whitespace-nowrap">
+              Zgjidh Foto
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Përshkrimi i Shkurtër (Bio)</label>
+          <textarea id="edit-profile-bio" rows="3" placeholder="Përshkruani fushën e përgjegjësisë..." class="fol-input text-sm"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase text-ash-2 mb-1">Fushat / Temat (të ndara me presje)</label>
+          <input type="text" id="edit-profile-categories" placeholder="Infrastruktura, Pastrimi, Arsimi, Urbanistika" class="fol-input text-sm">
+        </div>
+
+        <div class="flex justify-end gap-2 pt-3">
+          <button type="button" onclick="closeModal('profile-edit-modal')" class="px-4 py-2 text-xs font-bold uppercase text-ash-2 hover:text-ink">Anulo</button>
+          <button type="submit" class="bg-red text-paper hover:bg-red-deep px-6 py-2.5 rounded-full font-bold uppercase text-xs tracking-wider">
+            Ruaj Profilin
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- GOOGLE AUTHENTICATION & FULL REGISTRATION MODAL -->
+  <!-- ======================================================== -->
+  <div id="auth-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 fol-modal-backdrop">
+    <div class="bg-paper rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative border border-line text-ink">
+      
+      <!-- Close Button -->
+      <button onclick="closeModal('auth-modal')" class="absolute top-5 right-5 text-ash-2 hover:text-ink text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Modal Branding -->
+      <div class="text-center mb-6">
+        <img src="brand/logo-bashkia-kamez.png" class="h-14 mx-auto mb-2 object-contain" alt="Logo Bashkia Kamëz">
+        <h3 id="auth-modal-title" class="font-display text-2xl font-medium">Shkruaj Kryetarit</h3>
+        <p id="auth-modal-desc" class="text-xs text-ash-2 mt-1">Platforma zyrtare e bashkëbisedimit me Kryetarin e Bashkisë Kamëz</p>
+      </div>
+
+      <!-- STEP 1: GOOGLE SIGN-IN / INTENT -->
+      <div id="auth-step-1" class="space-y-4">
+        <div class="bg-cream/70 p-4 rounded-xl border border-line text-xs text-ink/80 leading-relaxed text-center">
+          Kyçuni përmes llogarisë suaj <strong>Google</strong> për të dërguar pyetjen apo kërkesën tuaj dhe për të ndjekur përgjigjen zyrtare.
+        </div>
+
+        <!-- Big Official Google Sign-In Button -->
+        <button type="button" onclick="handleGoogleSignInPrompt()" class="w-full bg-white hover:bg-cream/80 text-ink border border-line font-medium py-3 px-4 rounded-xl shadow-sm flex items-center justify-center gap-3 transition-all hover:shadow active:scale-[0.99]">
+          <svg class="w-5 h-5" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+          </svg>
+          <span class="text-sm font-semibold tracking-wide">Vazhdo me Google</span>
+        </button>
+
+        <!-- Divider -->
+        <div class="relative flex items-center justify-center my-3">
+          <div class="border-t border-line w-full"></div>
+          <span class="bg-paper px-3 text-[11px] uppercase tracking-wider text-ash-2 font-bold absolute">ose shpejt</span>
+        </div>
+
+        <!-- Custom / Fast Google Account Input -->
+        <div class="space-y-3">
+          <div>
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-ash-2 mb-1">
+              Shkruani Email-in Tuaj Google
+            </label>
+            <div class="relative">
+              <input type="email" id="auth-custom-email" placeholder="emri.juaj@gmail.com" class="fol-input text-sm pl-9">
+              <i class="fa-solid fa-envelope absolute left-3 top-3.5 text-ash-2 text-xs"></i>
+            </div>
+          </div>
+
+          <!-- Quick Test Accounts -->
+          <div>
+            <span class="text-[10px] uppercase font-bold text-ash-2 block mb-1.5">Llogari Shembull për Qytetarët:</span>
+            <div class="flex flex-wrap gap-1.5">
+              <button type="button" onclick="selectQuickEmail('qytetari.kamez@gmail.com', 'Arbër Krasniqi')" class="bg-cream hover:bg-line text-ink text-xs px-2.5 py-1 rounded-full border border-line">
+                🏛️ qytetari.kamez@gmail.com
+              </button>
+              <button type="button" onclick="selectQuickEmail('banori.paskuqan@gmail.com', 'Banor Paskuqan')" class="bg-cream hover:bg-line text-ink text-xs px-2.5 py-1 rounded-full border border-line">
+                🌳 banori.paskuqan@gmail.com
+              </button>
+            </div>
+          </div>
+
+          <button type="button" onclick="proceedToRegistrationStep()" class="w-full bg-ink text-paper hover:bg-ink/90 py-2.5 rounded-xl font-bold uppercase tracking-wider text-xs transition-colors flex items-center justify-center gap-2">
+            <span>Vazhdo me të Dhënat (Add)</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: COMPLETE REGISTRATION (FULL NAME & PHONE NUMBER) -->
+      <form id="auth-step-2" class="hidden space-y-4" onsubmit="handleCompleteRegistration(event)">
+        <div class="bg-cream p-3 rounded-xl border border-line flex items-center gap-3">
+          <img id="auth-step2-avatar" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=160&q=80" class="w-10 h-10 rounded-full object-cover border border-line">
+          <div class="min-w-0">
+            <span class="text-[10px] font-bold uppercase text-ash-2">Llogaria e lidhur Google:</span>
+            <div id="auth-step2-email" class="font-bold text-xs text-ink truncate">email@gmail.com</div>
+          </div>
+          <button type="button" onclick="backToAuthStep1()" class="ml-auto text-xs text-red hover:underline shrink-0">
+            Ndrysho
+          </button>
+        </div>
+
+        <div class="border-t border-line pt-2">
+          <h4 class="font-display font-bold text-base text-ink mb-1">Plotësoni të Dhënat e Sakta</h4>
+          <p class="text-xs text-ash-2 leading-relaxed">
+            Për të përfunduar regjistrimin e plotë, vendosni emrin e saktë dhe numrin e vlefshëm të telefonit.
+          </p>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-ash-2 mb-1">
+            Emri dhe Mbiemri i Saktë *
+          </label>
+          <div class="relative">
+            <input type="text" id="auth-reg-fullname" required placeholder="p.sh. Arbër Hoxha" class="fol-input text-sm pl-9">
+            <i class="fa-solid fa-user absolute left-3 top-3.5 text-ash-2 text-xs"></i>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold tracking-wider uppercase text-ash-2 mb-1">
+            Numri i Telefonit *
+          </label>
+          <div class="relative">
+            <input type="tel" id="auth-reg-phone" required placeholder="+355 69 123 4567" class="fol-input text-sm pl-9">
+            <i class="fa-solid fa-phone absolute left-3 top-3.5 text-ash-2 text-xs"></i>
+          </div>
+          <span class="text-[11px] text-ash-2 mt-1 block">Numri juaj përdoret për verifikimin dhe përgjigjen zyrtare.</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold tracking-wider uppercase text-ash-2 mb-1">
+            Qyteti / Universiteti (Opsionale)
+          </label>
+          <div class="relative">
+            <input type="text" id="auth-reg-city" placeholder="p.sh. Tiranë / Fakulteti i Drejtësisë" class="fol-input text-sm pl-9">
+            <i class="fa-solid fa-location-dot absolute left-3 top-3.5 text-ash-2 text-xs"></i>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" id="auth-submit-btn" class="w-full bg-red text-paper hover:bg-red-deep h-12 rounded-xl font-bold uppercase tracking-wider text-xs transition-colors shadow-md flex items-center justify-center gap-2">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Përfundo Regjistrimin e Plotë</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: MESAZHET E MIA (CITIZEN DIALOGUES) -->
+  <!-- ======================================================== -->
+  <div id="my-inquiries-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 fol-modal-backdrop">
+    <div class="bg-paper rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative border border-line text-ink max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('my-inquiries-modal')" class="absolute top-5 right-5 text-ash-2 hover:text-ink text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="border-b border-line pb-3 mb-5">
+        <span class="bg-red/10 text-red px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider">Hapësira Ime</span>
+        <h3 class="font-display text-2xl font-medium mt-1">Mesazhet e Mia në Dialog</h3>
+        <p class="text-xs text-ash-2 mt-1">Statusi i shqyrtimit dhe përgjigjet zyrtare nga përfaqësuesit</p>
+      </div>
+      <div id="my-inquiries-list" class="space-y-4">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

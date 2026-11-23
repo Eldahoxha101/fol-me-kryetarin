@@ -1,0 +1,24 @@
+[
+  {
+    "id": "usr-kamez-1",
+    "googleId": "google-kamez-01",
+    "email": "qytetari.kamez@gmail.com",
+    "fullName": "Arbër Krasniqi",
+    "phone": "+355 69 223 4455",
+    "city": "Kamëz",
+    "avatarUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=160&q=80",
+    "isVerified": true,
+    "registeredAt": "2026-11-23T20:15:00.000Z"
+  },
+  {
+    "id": "usr-kamez-2",
+    "googleId": "google-kamez-02",
+    "email": "banori.paskuqan@gmail.com",
+    "fullName": "Valbona Duka",
+    "phone": "+355 68 334 5566",
+    "city": "Paskuqan",
+    "avatarUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80",
+    "isVerified": true,
+    "registeredAt": "2026-11-23T20:30:00.000Z"
+  }
+]

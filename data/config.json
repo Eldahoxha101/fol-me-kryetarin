@@ -1,0 +1,136 @@
+{
+  "header": {
+    "title": "Fol me Kryetarin",
+    "subtitle": "Bashkia Kamëz · Zyra e Komunikimit me Qytetarët",
+    "logoUrl": "brand/logo-bashkia-kamez.png",
+    "ctaText": "shkruaj KRYETARIT"
+  },
+  "hero": {
+    "tag": "Bashkia Kamëz · Dialog i Hapur",
+    "heading": "Fol me<br/>Kryetarin",
+    "subtext": "Një hapësirë e re e drejtpërdrejtë komunikimi me Kryetarin e Bashkisë Kamëz, Rakip Suli. E hapur për të gjithë qytetarët e Bashkisë Kamëz që dëshirojnë të bëjnë një pyetje, të ngrenë një shqetësim për komunitetin, të kërkojnë ndërhyrje për shërbimet publike apo të paraqesin një propozim për lagjen dhe qytetin e tyre.",
+    "bgImage": "brand/rakip-suli-cover.jpeg",
+    "pills": [
+      "Pyetje",
+      "Kërkesa",
+      "Shqetësime",
+      "Propozime"
+    ],
+    "ctaButton": "Shkruaj Kryetarit",
+    "ctaLink": "Pse krijohet kjo hapësirë?"
+  },
+  "letra": {
+    "tag": "01 · Mesazhi i Kryetarit",
+    "title": "Pse krijohet kjo hapësirë për Kamzën?",
+    "highlight": "për Kamzën?",
+    "bgImage": "brand/Bashkia-kamez.webp",
+    "paragraph1": "Bashkia Kamëz është shtëpia e përbashkët e më shumë se 130 mijë qytetarëve nga Kamza, Paskuqani, Valiasit dhe të gjitha njësitë tona administrative. Zhvillimi i qytetit tonë, nga transformimi i rrugëve e ndriçimit, te shkollat e reja, parqet e hapësirat publike, ka kuptim vetëm kur ecën krah për krah me zërin dhe nevojat e përditshme të çdo banori.",
+    "paragraph2": "Kjo platformë lind si një urë e drejtpërdrejtë midis çdo qytetari të Kamzës dhe Kryetarit të Bashkisë. Çdo pyetje për investimet, çdo kërkesë për shërbimet publike, çdo kritikë konstruktive apo propozim për përmirësimin e lagjes suaj do të trajtohet me përparësi, transparencë dhe përgjegjshmëri nga ekipi ynë.",
+    "quote": "Kamza zhvillohet më shpejt dhe më mirë kur bashkëbisedojmë hapur dhe dëgjojmë çdo qytetar pa asnjë ndërmjetës.",
+    "buttonText": "Drejtohu Kryetarit"
+  },
+  "koncepti": {
+    "tag": "02 · Qasja Jonë",
+    "title": "Nga zëri te zgjidhja konkrete",
+    "highlight": "zgjidhja konkrete",
+    "image": "brand/kamez-takim-projekteve.jpg",
+    "paragraphs": [
+      "Në jetën e përditshme të qytetit, çdo qytetar ndesh çështje që lidhen me rrugët, kanalizimet, pastrimin, arsimin apo shërbimet vendore.",
+      "Qëllimi ynë është që asnjë zë të mos humbasë në burokraci dhe asnjë ankesë të mos mbetet pa përgjigje.",
+      "Platforma 'Fol me Kryetarin' është ndërtuar që të jetë e thjeshtë, e menjëhershme dhe lehtësisht e përdorshme nga çdo banor i Bashkisë Kamëz nga kompjuteri apo celulari i tij.",
+      "Çdo mesazh shqyrtohet nga stafi përkatës i Bashkisë dhe verifikohet në terren nga inspektorët tanë për të dhënë zgjidhje të shpejtë.",
+      "Për çështjet me interes të përgjithshëm qytetar, përgjigjet dhe projektet do të publikohen hapur, duke ruajtur plotësisht konfidencialitetin e personave që dëshirojnë të mbeten anonimë.",
+      "Periodikisht do të publikohen raporte dhe pasqyra të pyetjeve të adresuara dhe punëve konkrete të realizuara në çdo lagje të Kamzës."
+    ],
+    "quote": "Sepse angazhimi ynë është që çdo fjalë e qytetarit të kthehet në punë konkrete për Bashkinë Kamëz."
+  },
+  "temat": {
+    "tag": "03 · Fushat e Komunikimit",
+    "title": "Çfarë mund të kërkoni apo propozoni?",
+    "highlight": "mund të kërkoni",
+    "image": "brand/pastrimi-ok.jpg",
+    "subtitle": "Gjithçka që lidhet me jetën tuaj të përditshme, lagjen, shërbimet dhe të ardhmen e Bashkisë Kamëz.",
+    "description": "Mund të pyesni për rrugët, infrastrukturën, ndriçimin publik, furnizimin me ujë, pastrimin dhe menaxhimin e mbetjeve, parqet e këndet e lojërave, çerdhet, kopshtet dhe shkollat, si dhe shërbimet administrative vendore. Nuk ka çështje të vogël kur bëhet fjalë për mirëqenien e banorëve tanë.",
+    "buttonText": "Shkruaj tani"
+  },
+  "garancite": {
+    "tag": "04 · Angazhimi Publik",
+    "title": "Garancitë për çdo qytetar",
+    "bgImage": "brand/maratona-kamzes.jpg",
+    "cards": [
+      {
+        "title": "Përfshirja",
+        "desc": "Kjo hapësirë është e hapur për të gjithë banorët e Kamzës, Paskuqanit dhe njësive administrative pa asnjë dallim.",
+        "color": "#4285b6",
+        "textColor": "dark"
+      },
+      {
+        "title": "Konfidencialiteti",
+        "desc": "Të dhënat tuaja ruhen sipas ligjit. Pyetja juaj mund të mbahet anonime nëse nuk dëshironi publikimin e emrit.",
+        "color": "#ffc12e",
+        "textColor": "dark"
+      },
+      {
+        "title": "Verifikimi në Terren",
+        "desc": "Çdo shqetësim infrastrukturor inspektohet nga grupet tona të punës në terren.",
+        "color": "#ff80b4",
+        "textColor": "dark"
+      },
+      {
+        "title": "Zgjidhja Konkrete",
+        "desc": "Synimi ynë nuk është vetëm fjala, por ndërhyrja konkrete dhe përmirësimi i shërbimeve.",
+        "color": "#8d8ff2",
+        "textColor": "dark"
+      },
+      {
+        "title": "Transparenca",
+        "desc": "Projektet e mëdha dhe përgjigjet e përgjithshme bëhen publike për të gjithë komunitetin.",
+        "color": "#e8302f",
+        "textColor": "light"
+      },
+      {
+        "title": "Llogaridhënia",
+        "desc": "Kryetari dhe drejtoritë e bashkisë mbajnë përgjegjësi të plotë për afatet e kthimit të përgjigjes.",
+        "color": "#ff9243",
+        "textColor": "dark"
+      }
+    ]
+  },
+  "shkruaj": {
+    "tag": "05 · Drejtohu Kryetarit",
+    "title": "Shkruaj mesazhin tënd",
+    "subtitle": "Zgjidhni drejtorinë ose Kryetarin e Bashkisë, shkruani pyetjen apo kërkesën tuaj dhe merrni kodin e ndjekjes zyrtare.",
+    "buttonText": "Dërgo Kërkesën te Kryetari"
+  },
+  "procesi": {
+    "tag": "06 · Si Funksionon",
+    "title": "Nga pyetja te zgjidhja konkrete",
+    "highlight": "zgjidhja konkrete",
+    "bgImage": "brand/Bashkia-kamez.webp",
+    "cards": [
+      {
+        "title": "Regjistrohet",
+        "desc": "Kërkesa apo pyetja juaj merr një kod unik identifikimi dhe arkivohet në regjistrin zyrtar të komunikimit qytetar."
+      },
+      {
+        "title": "Shqyrtohet",
+        "desc": "Zyra e Kryetarit dhe drejtoria përkatëse (Infrastrukturë, Shërbime Publike, Urbanistikë) analizojnë çështjen."
+      },
+      {
+        "title": "Verifikohet në Terren",
+        "desc": "Inspektorët e Bashkisë verifikojnë situatën në lagje dhe përcaktojnë planin e menjëhershëm të ndërhyrjes."
+      },
+      {
+        "title": "Merr Përgjigje Zyrtare",
+        "desc": "Ju merrni përgjigjen zyrtare në sistem dhe me njoftim, ndërsa çështjet me interes komunitar publikohen në portal."
+      }
+    ]
+  },
+  "footer": {
+    "title": "Fol me Kryetarin",
+    "subtitle": "Bashkia Kamëz · Zyra e Komunikimit me Qytetarët",
+    "description": "Një hapësirë e re e drejtpërdrejtë komunikimi me Kryetarin e Bashkisë Kamëz, Rakip Suli. E hapur për të gjithë qytetarët e Kamzës, Paskuqanit dhe njësive administrative: pyetje, kërkesa, shqetësime, propozime.",
+    "copyright": "© 2026 Bashkia Kamëz. Të gjitha të drejtat e rezervuara.",
+    "disclaimer": "Identifikimi bëhet me llogari të verifikuar Google ose me të dhëna të sakta qytetare."
+  }
+}

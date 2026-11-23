@@ -1,0 +1,14 @@
+{
+  "name": "fol-me-kryetarin",
+  "version": "1.0.0",
+  "description": "Portali Fol me Kryetarin · Bashkia Kamëz (Platformë e dialogut dhe transparencës me qytetarët)",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": ["dialogue", "civic-tech", "transparency", "qa-platform"],
+  "author": "Antigravity",
+  "license": "MIT"
+}

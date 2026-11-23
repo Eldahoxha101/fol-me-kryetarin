@@ -1,0 +1,44 @@
+[
+  {
+    "id": "inq-1",
+    "trackingCode": "FOL-10492",
+    "profileId": "prof-kryetari",
+    "senderName": "Arbër Krasniqi",
+    "senderEmail": "arber.krasniqi@gmail.com",
+    "senderPhone": "+355 69 223 4455",
+    "isAnonymous": false,
+    "category": "Infrastruktura & Rrugët",
+    "subject": "Asfaltimi i rrugës lidhëse dhe ndriçimi publik në lagjen Paskuqan 2",
+    "message": "I nderuar Z. Kryetar Rakip Suli, banorët e lagjes sonë në Paskuqan 2 kërkojnë të dinë se kur parashikohet përfundimi i segmentit të fundit të asfaltimit dhe vendosja e trupave ndriçues LED përgjatë rrugës kryesore.",
+    "status": "answered",
+    "isPublic": true,
+    "createdAt": "2026-11-20T10:15:00.000Z",
+    "response": {
+      "answeredBy": "prof-kryetari",
+      "responderName": "Rakip Suli (Kryetar i Bashkisë Kamëz)",
+      "answerText": "Përshëndetje Arbër. Segmenti i rrugës në Paskuqan 2 është pjesë e Lotit 3 të projektit të Rilindjes Urbane të Bashkisë Kamëz. Punimet në nëntokë dhe kanalizime janë përmbyllur, ndërsa shtrimi me asfalt dhe vendosja e ndriçimit të plotë LED nisin brenda kësaj jave dhe do të përfundojnë brenda 15 ditëve.",
+      "answeredAt": "2026-11-21T14:30:00.000Z"
+    }
+  },
+  {
+    "id": "inq-2",
+    "trackingCode": "FOL-28193",
+    "profileId": "prof-sherbime",
+    "senderName": "Qytetare nga Kamza",
+    "senderEmail": "banore.kamez@gmail.com",
+    "senderPhone": "+355 68 334 5566",
+    "isAnonymous": true,
+    "category": "Pastrimi & Mbetjet Urbane",
+    "subject": "Shtimi i kontejnerëve të mbetjeve dhe orari i pastrimit në Bulevardin Blu",
+    "message": "Kërkojmë nga Drejtoria e Shërbimeve Publike shtimin e koshave të diferencuar dhe rritjen e frekuencës së pastrimit në orët e mbrëmjes në kryqëzimin pranë shkollës 'Ibrahim Rugova'.",
+    "status": "answered",
+    "isPublic": true,
+    "createdAt": "2026-11-21T09:00:00.000Z",
+    "response": {
+      "answeredBy": "prof-sherbime",
+      "responderName": "Drejtoria e Shërbimeve Publike & Pastrimit",
+      "answerText": "Përshëndetje. Ndërmarrja jonë e pastrimit kreu verifikimin e menjëhershëm në terren. Janë vendosur 4 kontejnerë të rinj të mbyllur dhe është riorganizuar grafiku i turnit të dytë të automjeteve të pastrimit duke nisur nga ora 21:00.",
+      "answeredAt": "2026-11-22T11:20:00.000Z"
+    }
+  }
+]

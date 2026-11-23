@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --color-paper: #ffffff;
+  --color-cream: #f7f5f1;
+  --color-ink: #0b0b0a;
+  --color-ink-2: #333330;
+  --color-ash: #6f6f6b;
+  --color-ash-2: #5f5f5b;
+  --color-red: #c8181b;
+  --color-red-deep: #9c1114;
+  --color-red-bright: #e41e20;
+  --color-line: #e2e2e0;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-cream);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.drop-cap:first-letter {
+  float: left;
+  font-family: var(--font-display);
+  color: var(--color-red);
+  padding: 0.08em 0.12em 0 0;
+  font-size: 4.5em;
+  font-weight: 500;
+  line-height: 0.82;
+}
+
+/* Modal styles matching folmekm aesthetic */
+.fol-modal-backdrop {
+  background-color: rgba(11, 11, 10, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.fol-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fol-input:focus {
+  outline: none;
+  border-color: var(--color-red);
+  box-shadow: 0 0 0 2px rgba(200, 24, 27, 0.15);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d0c7;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a49a;
+}
