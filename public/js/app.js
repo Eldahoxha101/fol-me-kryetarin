@@ -1169,8 +1169,42 @@ async function deleteInquiryItem(id) {
 // 6. MODALS & ADMIN TABS HELPERS
 // -------------------------------------------------------------
 function openAdminModal() {
-  document.getElementById('admin-modal').classList.remove('hidden');
-  switchAdminTab('inbox');
+  const isAuth = sessionStorage.getItem('folme_admin_auth');
+  if (isAuth === 'true') {
+    document.getElementById('admin-modal').classList.remove('hidden');
+    switchAdminTab('inbox');
+    return;
+  }
+  openAdminLoginModal();
+}
+
+function openAdminLoginModal() {
+  const m = document.getElementById('admin-login-modal');
+  if (m) {
+    m.classList.remove('hidden');
+    const err = document.getElementById('admin-login-error');
+    if (err) err.classList.add('hidden');
+    const input = document.getElementById('admin-login-pass');
+    if (input) {
+      input.value = '';
+      setTimeout(() => input.focus(), 100);
+    }
+  }
+}
+
+function verifyAdminLogin(e) {
+  if (e) e.preventDefault();
+  const pass = (document.getElementById('admin-login-pass')?.value || '').trim();
+  if (pass === 'kamez2026' || pass === 'admin2026' || pass === 'admin') {
+    sessionStorage.setItem('folme_admin_auth', 'true');
+    closeModal('admin-login-modal');
+    document.getElementById('admin-modal').classList.remove('hidden');
+    switchAdminTab('inbox');
+  } else {
+    const err = document.getElementById('admin-login-error');
+    if (err) err.classList.remove('hidden');
+    else alert('Fjalëkalimi i administratorit nuk është i saktë.');
+  }
 }
 
 function closeModal(modalId) {
@@ -1305,10 +1339,19 @@ function handleNavCtaClick() {
 }
 
 function handleGoogleSignInPrompt() {
-  // Use entered email or default sample
   const emailInput = document.getElementById('auth-custom-email');
-  const email = (emailInput && emailInput.value.trim()) || 'qytetari.tirane@gmail.com';
-  selectQuickEmail(email, 'Arbër Hoxha');
+  let email = emailInput ? emailInput.value.trim() : '';
+  if (!email) {
+    const inputEmail = window.prompt('Ju lutem vendosni adresën tuaj të email-it Google (Gmail):');
+    if (inputEmail && inputEmail.trim() && inputEmail.includes('@')) {
+      email = inputEmail.trim();
+      if (emailInput) emailInput.value = email;
+    } else {
+      if (emailInput) emailInput.focus();
+      return;
+    }
+  }
+  selectQuickEmail(email, '');
 }
 
 function selectQuickEmail(email, sampleName) {

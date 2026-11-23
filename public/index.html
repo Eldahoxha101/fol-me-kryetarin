@@ -348,7 +348,7 @@
             <div id="form-auth-banner" class="bg-paper p-4 rounded-xl border border-line flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <div class="flex items-center gap-3">
                 <div class="size-9 rounded-full bg-cream flex items-center justify-center shrink-0 border border-line">
-                  <svg class="w-4 h-4" viewBox="0 0 24 24">
+                  <svg class="google-svg-fixed" style="width: 18px; height: 18px; min-width: 18px; max-width: 18px;" viewBox="0 0 24 24">
                     <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
                     <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
                     <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
@@ -557,6 +557,57 @@
       </div>
     </div>
   </footer>
+
+  <!-- ======================================================== -->
+  <!-- ADMIN LOGIN & SECURITY MODAL -->
+  <!-- ======================================================== -->
+  <div id="admin-login-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 fol-modal-backdrop">
+    <div class="bg-paper rounded-2xl max-w-sm w-full p-6 sm:p-7 shadow-2xl relative border border-line text-ink">
+      <button onclick="closeModal('admin-login-modal')" class="absolute top-4 right-4 text-ash-2 hover:text-ink text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center mb-5">
+        <img src="brand/logo-bashkia-kamez.png" class="h-14 mx-auto mb-2 object-contain" alt="Bashkia Kamëz">
+        <h3 class="font-display text-xl font-bold">Paneli i Administrimit</h3>
+        <p class="text-xs text-ash-2 mt-1">Bashkia Kamëz · Qasje e Autorizuar</p>
+      </div>
+
+      <form onsubmit="verifyAdminLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-ash-2 mb-1">
+            Email Administratori
+          </label>
+          <div class="relative">
+            <input type="email" id="admin-login-email" value="admin@kamza.gov.al" class="fol-input text-xs pl-8" required>
+            <i class="fa-solid fa-user-shield absolute left-2.5 top-3 text-ash-2 text-xs"></i>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-ash-2 mb-1">
+            Fjalëkalimi i Sigurisë
+          </label>
+          <div class="relative">
+            <input type="password" id="admin-login-pass" placeholder="Shkruani fjalëkalimin..." class="fol-input text-xs pl-8" required>
+            <i class="fa-solid fa-lock absolute left-2.5 top-3 text-ash-2 text-xs"></i>
+          </div>
+          <div id="admin-login-error" class="hidden text-[11px] text-red font-medium mt-1">
+            <i class="fa-solid fa-triangle-exclamation mr-1"></i> Fjalëkalimi nuk është i saktë!
+          </div>
+        </div>
+
+        <button type="submit" class="w-full bg-red hover:bg-red-deep text-paper font-bold uppercase tracking-wider text-xs py-2.5 rounded-xl transition-all shadow-sm flex items-center justify-center gap-2">
+          <span>Hyr në Panel</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+
+        <p class="text-[10px] text-ash-2 text-center pt-1">
+          Kredencialet zyrtare: <strong>admin@kamza.gov.al</strong>
+        </p>
+      </form>
+    </div>
+  </div>
 
   <!-- ======================================================== -->
   <!-- COMPREHENSIVE ADMIN & CUSTOMIZER MODAL (4 TABS) -->
@@ -1014,55 +1065,43 @@
 
       <!-- STEP 1: GOOGLE SIGN-IN / INTENT -->
       <div id="auth-step-1" class="space-y-4">
-        <div class="bg-cream/70 p-4 rounded-xl border border-line text-xs text-ink/80 leading-relaxed text-center">
+        <div class="p-3.5 rounded-xl text-xs text-ink/80 leading-relaxed text-center" style="background-color: #f7f5f1; border: 1px solid #e2e2e0;">
           Kyçuni përmes llogarisë suaj <strong>Google</strong> për të dërguar pyetjen apo kërkesën tuaj dhe për të ndjekur përgjigjen zyrtare.
         </div>
 
         <!-- Big Official Google Sign-In Button -->
-        <button type="button" onclick="handleGoogleSignInPrompt()" class="w-full bg-white hover:bg-cream/80 text-ink border border-line font-medium py-3 px-4 rounded-xl shadow-sm flex items-center justify-center gap-3 transition-all hover:shadow active:scale-[0.99]">
-          <svg class="w-5 h-5" viewBox="0 0 24 24">
+        <button type="button" onclick="handleGoogleSignInPrompt()" class="google-signin-btn">
+          <svg class="google-svg-fixed" viewBox="0 0 24 24">
             <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
             <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
             <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
             <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
           </svg>
-          <span class="text-sm font-semibold tracking-wide">Vazhdo me Google</span>
+          <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14px; font-weight: 600; color: #3c4043; letter-spacing: 0.1px;">Vazhdo me Google</span>
         </button>
 
         <!-- Divider -->
-        <div class="relative flex items-center justify-center my-3">
-          <div class="border-t border-line w-full"></div>
-          <span class="bg-paper px-3 text-[11px] uppercase tracking-wider text-ash-2 font-bold absolute">ose shpejt</span>
+        <div style="display: flex; align-items: center; margin: 18px 0; text-align: center;">
+          <div style="flex: 1; border-bottom: 1px solid #e2e2e0;"></div>
+          <span style="padding: 0 12px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: #70757a; font-weight: 700;">ose shkruani email-in tuaj</span>
+          <div style="flex: 1; border-bottom: 1px solid #e2e2e0;"></div>
         </div>
 
         <!-- Custom / Fast Google Account Input -->
         <div class="space-y-3">
           <div>
-            <label class="block text-[11px] font-bold uppercase tracking-wider text-ash-2 mb-1">
-              Shkruani Email-in Tuaj Google
+            <label style="display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #5f5f5b; margin-bottom: 6px;">
+              Adresa Email (Google / Gmail)
             </label>
-            <div class="relative">
-              <input type="email" id="auth-custom-email" placeholder="emri.juaj@gmail.com" class="fol-input text-sm pl-9">
-              <i class="fa-solid fa-envelope absolute left-3 top-3.5 text-ash-2 text-xs"></i>
+            <div style="position: relative;">
+              <input type="email" id="auth-custom-email" placeholder="emri.juaj@gmail.com" style="width: 100%; padding: 11px 14px 11px 38px; border-radius: 12px; border: 1px solid #c9c9c6; font-size: 14px; outline: none; background: #ffffff; box-sizing: border-box; transition: border-color 0.2s;" onfocus="this.style.borderColor='#c8181b'" onblur="this.style.borderColor='#c9c9c6'">
+              <i class="fa-solid fa-envelope" style="position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: #888884; font-size: 13px;"></i>
             </div>
           </div>
 
-          <!-- Quick Test Accounts -->
-          <div>
-            <span class="text-[10px] uppercase font-bold text-ash-2 block mb-1.5">Llogari Shembull për Qytetarët:</span>
-            <div class="flex flex-wrap gap-1.5">
-              <button type="button" onclick="selectQuickEmail('qytetari.kamez@gmail.com', 'Arbër Krasniqi')" class="bg-cream hover:bg-line text-ink text-xs px-2.5 py-1 rounded-full border border-line">
-                🏛️ qytetari.kamez@gmail.com
-              </button>
-              <button type="button" onclick="selectQuickEmail('banori.paskuqan@gmail.com', 'Banor Paskuqan')" class="bg-cream hover:bg-line text-ink text-xs px-2.5 py-1 rounded-full border border-line">
-                🌳 banori.paskuqan@gmail.com
-              </button>
-            </div>
-          </div>
-
-          <button type="button" onclick="proceedToRegistrationStep()" class="w-full bg-ink text-paper hover:bg-ink/90 py-2.5 rounded-xl font-bold uppercase tracking-wider text-xs transition-colors flex items-center justify-center gap-2">
+          <button type="button" onclick="proceedToRegistrationStep()" style="width: 100%; background-color: #0b0b0a; color: #ffffff; padding: 12px 16px; border-radius: 12px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" onmouseover="this.style.backgroundColor='#c8181b'" onmouseout="this.style.backgroundColor='#0b0b0a'">
             <span>Vazhdo me të Dhënat (Add)</span>
-            <i class="fa-solid fa-arrow-right text-xs"></i>
+            <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i>
           </button>
         </div>
       </div>

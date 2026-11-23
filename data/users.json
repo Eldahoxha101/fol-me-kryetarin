@@ -1,5 +1,17 @@
 [
   {
+    "id": "usr-admin-kamez",
+    "googleId": "admin-kamez-root",
+    "email": "admin@kamza.gov.al",
+    "fullName": "Administratori Kryesor (Bashkia Kamëz)",
+    "phone": "+355 4 820 0111",
+    "city": "Kamëz",
+    "role": "admin",
+    "avatarUrl": "brand/logo-bashkia-kamez.png",
+    "isVerified": true,
+    "registeredAt": "2026-11-23T20:00:00.000Z"
+  },
+  {
     "id": "usr-kamez-1",
     "googleId": "google-kamez-01",
     "email": "qytetari.kamez@gmail.com",
